@@ -14,3 +14,13 @@ export enum UserType{
     Cliente,
     Tecnico
 }
+
+export interface LoginResponse{
+    id: number
+    name: string
+    type: string
+    dimension: string
+    residents: Array<string>
+    url: Array<string>
+    created: string
+}
