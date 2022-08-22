@@ -1,2 +1,2 @@
 <h1>@input y @output</h1>
-<app-user *ngFor="let user of usuario"></app-user>
+<app-user [data]="user" (borrar)="borrarUsuario($event)"   *ngFor="let user of usuarios"> </app-user>
