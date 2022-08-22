@@ -1,5 +1,5 @@
-export interface Usuario{
-    ID: number,
+export interface IUsuario{
+    id: number,
     Nombre: string,
     Apellido: string,
     Nick: string,
