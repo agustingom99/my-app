@@ -1,32 +1,30 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup,Validator, Validators } from '@angular/forms';
 import { IUsuario, UserType } from '../app/other/interfaces';
+import {}  from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  implements OnInit{
-  title = 'my-app';
-  usuarios: IUsuario[] = [];
+export class AppComponent {
+  singupForm: FormGroup 
 
-  constructor( private _http: HttpClient){};
+  constructor(private _builder: FormBuilder){
+   this.singupForm = this._builder.group({
+    nombre:[''],
+    usuario:['',Validators.required] ,
+    email: ['', Validators.compose([Validators.email, Validators.required])] ,
+    clave: ['',Validators.required]
+   })
+    
+   };
 
-  ngOnInit() {
-    this._http.get('https://jsonplaceholder.typicode.com/users')
-    .subscribe((datos : any) => this.usuarios= datos);
+   enviar(values: any){
+    console.log(values);
+   }
   }
 
-  borrarUsuario(id: number){
-    console.log(id);
-    console.log(" ");
-    this.usuarios.forEach(element => {
-      console.log(element.id);
-    });
-    
-    
-    this.usuarios = this.usuarios.filter(usuario => usuario.id != id ) 
-  }
 
-}

@@ -5,8 +5,9 @@ import { AppRoutingModule } from './Components/app/app-routing.module';
 import { AppComponent } from './Components/app/app.component';
 import { UserComponent } from './Components/user/user.component';
 import { Parte4Component } from './components/parte4/parte4.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+
 
 /* Componentes & pipes*/
 @NgModule({
@@ -23,7 +24,8 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   /* servicios*/
   providers: [],

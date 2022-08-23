@@ -1,2 +1,17 @@
-<h1>@input y @output</h1>
-<app-user [data]="user" (borrar)="borrarUsuario($event)"   *ngFor="let user of usuarios"> </app-user>
+<h1>Formularios básicos</h1>
+<form [formGroup]="singupForm" (ngSubmit)="enviar(singupForm.value)">
+    <label>Nombre:</label>
+    <input formControlName="nombre" type="text">
+    <br>
+    <label>Usuario:</label>
+    <input formControlName="usuario" type="text">
+    <br>
+    <label>Email:</label>
+    <input formControlName="email" type="email">
+    <div *ngIf="singupForm.get('email')?.hasError('email') && singupForm.get('email')?.touched "> esta mal</div>
+    <br>
+    <label>Contraseña</label>
+    <input formControlName="clave" type="password">
+    <br>
+    <button [disabled]="singupForm.invalid" class="btn btn-primary" type="submit">registrarse</button>
+</form>
